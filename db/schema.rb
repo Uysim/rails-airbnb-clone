@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2019_08_07_095532) do
   enable_extension "plpgsql"
 
   create_table "properties", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "address"
     t.integer "floors"
     t.uuid "user_id"
