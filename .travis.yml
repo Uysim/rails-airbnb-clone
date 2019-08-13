@@ -1,0 +1,12 @@
+language: ruby
+services:
+  - postgresql
+rvm:
+  - 2.6.3
+
+before_script:
+  - bundle install
+  - bundle exec rails db:create
+
+script:
+  - bundle exec rspec
