@@ -21,14 +21,14 @@ RSpec.describe "Properties API" do
   end
 
   it "create property successfully" do
-  	user = create(:user)
+    user = create(:user)
 
-  	params = build_jsonapi_params(
+    params = build_jsonapi_params(
       :property,
-  		name: "Testing Property"
-  	)
+    	name: "Testing Property"
+    )
 
-  	post "/api/v1/properties", headers: user.create_new_auth_token, params: params
+    post "/api/v1/properties", headers: user.create_new_auth_token, params: params
 
     expect(response).to have_http_status(:created)
   end
