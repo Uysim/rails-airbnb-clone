@@ -10,7 +10,6 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'bootsnap', require: false
-
 gem 'devise'
 gem 'devise_token_auth'
 gem 'rack-cors', :require => 'rack/cors'
