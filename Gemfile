@@ -4,18 +4,18 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 gem 'rails', '~> 5.2.2'
-gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 3.11'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'pg'
+gem 'puma'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
+gem 'bootsnap', require: false
 
 gem 'devise'
 gem 'devise_token_auth'
 gem 'rack-cors', :require => 'rack/cors'
-gem 'responders', '~> 3.0.0'
-gem 'active_model_serializers', '~> 0.10.0'
+gem 'responders'
+gem 'active_model_serializers'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
