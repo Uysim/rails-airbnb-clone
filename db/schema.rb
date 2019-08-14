@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_07_095532) do
+ActiveRecord::Schema.define(version: 2019_08_14_045403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 2019_08_07_095532) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_properties_on_user_id"
+  end
+
+  create_table "rooms", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.uuid "property_id"
+    t.jsonb "image_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_rooms_on_property_id"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -57,4 +66,5 @@ ActiveRecord::Schema.define(version: 2019_08_07_095532) do
   end
 
   add_foreign_key "properties", "users"
+  add_foreign_key "rooms", "properties"
 end

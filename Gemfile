@@ -16,6 +16,7 @@ gem 'devise_token_auth'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'responders', '~> 3.0.0'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'shrine'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
