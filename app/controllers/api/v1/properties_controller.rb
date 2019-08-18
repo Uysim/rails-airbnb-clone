@@ -23,13 +23,17 @@ module Api
 
       def destroy
         @property = current_user.properties.find(params[:id])
+        @property.destroy
         respond_with :api, :v1, @property
       end
 
       private
 
       def permitted_params
-        params.require(:data).require(:attributes).permit(:name, :address, :floor)
+        ActiveModelSerializers::Deserialization.jsonapi_parse(
+          params,
+          only: [:name, :address, :floor]
+        )
       end
     end
   end

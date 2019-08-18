@@ -25,7 +25,17 @@ RSpec.describe "Properties API" do
 
     params = build_jsonapi_params(
       :property,
-    	name: "Testing Property"
+    	name: "Testing Property",
+      relationships: {
+        rooms: {
+          data: [{
+            type: "room",
+            attributes: {
+              name: "Hello name"
+            }
+          }]
+        }
+      }
     )
 
     post "/api/v1/properties", headers: user.create_new_auth_token, params: params
