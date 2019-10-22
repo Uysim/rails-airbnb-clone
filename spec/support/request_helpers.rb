@@ -1,9 +1,10 @@
 module RequestHelpers
-  def build_jsonapi_params(type, params)
+  def build_jsonapi_params(type, relationships: {}, **params)
     {
       data: {
         type: type.to_s,
-        attributes: params
+        attributes: params,
+        relationships: relationships
       }
     }
   end
